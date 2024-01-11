@@ -7,7 +7,7 @@ const About = () => {
 
       {/*   About Me Content    */}
       <div className="">
-        <div className="md:my-20 md:mt-0 mt-8 my-14 w-[90%] md:w-[70%] mx-auto">
+        <div className="md:my-20 md:mt-0 mt-8 my-10 w-[90%] md:w-[70%] mx-auto">
           <p className="md:mb-10 mb-6">
             As a Kenyan based Web-Developer, my passion lies in creating accessible websites that users genuinely enjoy. With a commitment to excellence, I constantly update my skill set to incorporate cutting edge-technologies, ensuring that the websites I build are both innovative and user-friendly.
           </p>

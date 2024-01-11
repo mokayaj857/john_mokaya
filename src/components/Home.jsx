@@ -3,7 +3,7 @@ import HomePhoto from '../assets/home-photo.png'
 
 const Home = () => {
   return (
-    <div className="flex justify-between flex-col-reverse md:flex-row max-w-[1440px] mx-auto">
+    <div className="flex justify-between flex-col-reverse md:flex-row max-w-[1440px] mx-auto py-14">
 
       {/*   Name, Profession and Contact Me button    */}
       <div className="text-center md:text-left md:ml-4 -mt-18">
@@ -12,8 +12,8 @@ const Home = () => {
         <button className="md:mt-10 mt-6 md:px-4 md:py-2 px-2 py-1 bg-orange-300 text-slate-900 rounded-md hover:bg-orange-200 duration-300 ">Contact Me</button>
       </div>
       
-      {/*   Image and Social Icons    */}
-      <div className="md:ml-10 border-4 border-orange-300 mb-28">
+      {/*   Image    */}
+      <div className="md:ml-10 border-4 border-orange-300 mb-10">
         <img src={ HomePhoto } alt="" className="bg-gray-700 -ml-4 -mt-6 w-[300px] mb-4"/>
       </div>
     </div>
