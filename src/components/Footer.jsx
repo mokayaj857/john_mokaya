@@ -20,7 +20,7 @@ const Footer = () => {
           <a href="https://www.linkedin.com/in/allan-njoroge-0177b2270/" target="_blank" className="hover:text-orange-300 transition-all ease-in duration-400"><FaLinkedin /></a>
         </li>
       </ul>
-      <p className="flex text-xl">
+      <p className="flex md:text-xl text-sm">
         <span className="my-auto mx-2"><FaRegCopyright /></span>
         2024 Allan Njoroge. All Rights Reserved
       </p>
