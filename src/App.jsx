@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import About from './components/About'
@@ -7,11 +7,6 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 const App = () => {
-
-  useEffect(() => {
-    AOS.init({duration: 3000})
-  })
-
   return (
     <main className="bg-slate-900 h-screen text-gray-300">
       {/*   Navbar    */}
