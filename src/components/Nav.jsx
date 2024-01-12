@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { RiMenu3Fill, RiCloseFill } from 'react-icons/ri';
 import { MdPerson2 } from 'react-icons/md'
+import { Link as ScrollLink } from 'react-scroll';
 
 const Nav = () => {
 
   const Links = [
-    {name:"Home", link:"/"},
-    {name:"About Me", link:"/"},
-    {name:"Skills", link:"/"},
-    {name:"Contact", link:"/"},
+    {name:"Home", link:"home"},
+    {name:"About Me", link:"about"},
+    {name:"Skills", link:"skills"},
+    {name:"Contact", link:"contact"},
   ]
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,7 +34,18 @@ const Nav = () => {
           {
             Links.map((Links) => (
               <li key={Links.name} className="md:ml-8 text-xl md:my-0 my-7 text-slate-900 md:text-orange-300 md:hover:-mt-2 mr-2">
-                <a href={Links.link} className="py-4 px-2 hover:text-slate-300 duration-300">{Links.name}</a>
+                <ScrollLink 
+                activeClass="active"
+                to={Links.link}
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={500}
+                href={Links.link} 
+                className="py-4 px-2 hover:text-slate-300 duration-300"
+                >
+                  {Links.name}
+                </ScrollLink>
               </li>
             ))
           }
