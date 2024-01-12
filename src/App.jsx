@@ -16,7 +16,7 @@ const App = () => {
       <div className=" bg-slate-900 mt-10">
 
         {/*   Home    */}
-        <section id="home" className="flex justify-evenly items-center w-[90%] mx-auto">
+        <section id="home" className="h-screen flex justify-evenly items-center w-[90%] mx-auto">
           <Home />
         </section>
 
