@@ -4,6 +4,7 @@ import Home from './components/Home';
 import About from './components/About'
 import Skills from './components/Skills';
 import Contact from './components/Contact';
+import Projects from './components/Projects';
 import Footer from './components/Footer';
 
 const App = () => {
@@ -29,9 +30,10 @@ const App = () => {
         <section id="skills" className="flex justify-evenly items-center w-[90%] mx-auto pb-20">
           <Skills />
         </section>
-        <section>
-          {/*   Projects    */}
-          
+
+        {/*   Projects    */}
+        <section id="projects" className="flex justify-evenly items-center w-[90%] mx-auto pb-20">
+          <Projects />
         </section>
 
         {/*   Contact    */}
