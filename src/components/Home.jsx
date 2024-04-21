@@ -8,7 +8,7 @@ const Home = () => {
       {/*   Name, Profession and Contact Me button    */}
       <div className="text-center md:text-left md:ml-4 -mt-18">
         <h5 className="text-xl md:text-3xl">I'm Allan Njoroge</h5>
-        <h1 className="text-orange-300 text-[35px] lg:text-[70px] mt-4">Web Developer</h1>
+        <h1 className="text-orange-300 text-[35px] lg:text-[70px] mt-4">Frontend Developer</h1>
         <button className="md:mt-10 mt-6 md:px-4 md:py-2 px-2 py-1 bg-orange-300 text-slate-900 rounded-md hover:bg-orange-200 duration-300 ">Contact Me</button>
       </div>
       
