@@ -42,7 +42,7 @@ const Navbar = () => {
     { name: "CONTACT", link: "contact" },
   ];
   return (
-    <nav className="shadow h-[10vh] bg-background fixed w-full border-2 border-primary/20 z-[9999]">
+    <nav className="shadow h-[10vh] bg-background fixed w-full border-b-2 border-primary/20 z-[9999]">
       <div className="section flex justify-between my-auto place-items-center h-full">
         {/*===Logo===*/}
         <ScrollLink
