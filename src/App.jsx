@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { About, Hero, Skills, Projects, Contact } from "./sections";
@@ -14,23 +14,23 @@ const App = () => {
       duration: 1200,
       offset: 120,
     })
-  },{})
+  },[])
   
   return (
     <ThemeProvider>
       <Router>
         <Navbar />
         <section className="section">
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
+          <div id="home"><Hero /></div>
+          <div id="about" ><About /></div>          
+          <div id="skills" ><Skills /></div>
+          <div id="projects"><Projects /></div>
         </section>
-        <section className="bg-primary">
-          <Contact />
+        <section className="bg-primary" id="contact">
+          <Contact  />
           <Footer />
         </section>
-      </Router>
+      </Router> 
     </ThemeProvider>
   );
 };

@@ -97,7 +97,7 @@ const Contact = () => {
             ))}
           </div>
         </div>
-        <form ref={form} onSubmit={sendEmail} className="grid gap-5 w-1/2 mx-auto" data-aos="fade-right" data-aos-delay="900">
+        <form ref={form} onSubmit={sendEmail} className="grid gap-5 w-3/4 md:w-1/2 mx-auto" data-aos="fade-right" data-aos-delay="900">
           {inputs.map((item, index) => (
             <div key={index} className="relative">
               <label
