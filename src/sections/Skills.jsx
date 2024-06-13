@@ -71,7 +71,7 @@ const Skills = () => {
                 key={index} 
                 className=""
               >
-                <AccordionTrigger className="px-5 font-bold uppercase text-xl">
+                <AccordionTrigger className="px-5 font-bold uppercase text-lg md:text-xl">
                   <div className="flex gap-2">
                     <span className="my-auto">{item.icon}</span>
                     {item.category}

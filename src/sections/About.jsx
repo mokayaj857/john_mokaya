@@ -13,7 +13,8 @@ const About = () => {
           commitment to excellence drives me to continually update my skill set
           with cutting-edge technologies, ensuring that the websites I build are
           both innovative and user-friendly.
-          <br /><br/>
+          </p>
+          <p className="text-muted-foreground text-md md:text-lg md:w-[80%] mx-auto" data-aos="fade-up" data-aos-delay="700">
           In the ever-evolving field of web development, my focus on
           accessibility, exceptional user experiences, and cultural sensitivity
           fuels my excitement for creating impactful and meaningful online
