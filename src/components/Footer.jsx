@@ -1,29 +1,25 @@
-import React from 'react';
-import { FaRegCopyright, FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
+    const socials = [
+        { icon: < FaLinkedinIn className="text-3xl" />, link: "https://www.linkedin.com/in/allan-njoroge-0177b2270/" },
+        { icon: <FaGithub className="text-3xl" />, link: "https://github.com/Allan-njoroge" },
+        { icon: <FaInstagram className="text-3xl" />, link: "https://instagram.com/justallan._" }
+      ]
+
   return (
-    <div className="mt-20 mb-10">
-      <ul className="flex justify-center mb-20 gap-12 text-4xl">
-        {/*   Instagram   */}
-        <li>
-          <a href="https://www.instagram.com/justallan._" target="_blank" className="hover:text-orange-300 transition-all ease-in duration-400"><FaInstagram /></a>
-        </li>
-
-        {/*   Github   */}
-        <li>
-          <a href="https://github.com/Allan-njoroge" target="_blank" className="hover:text-orange-300 transition-all ease-in duration-400"><FaGithub /></a>
-        </li>
-
-        {/*   LinkedIn   */}
-        <li>
-          <a href="https://www.linkedin.com/in/allan-njoroge-0177b2270/" target="_blank" className="hover:text-orange-300 transition-all ease-in duration-400"><FaLinkedin /></a>
-        </li>
-      </ul>
-      <p className="flex md:text-xl text-sm">
-        <span className="my-auto mx-2"><FaRegCopyright /></span>
-        2024 Allan Njoroge. All Rights Reserved
-      </p>
+    <div className="section">
+        <div className="w-[100%] flex flex-col gap-5 justify-center border-t border-backrgound py-6">
+        <ul className="flex mx-auto gap-5 text-background">
+        {socials.map((item, index) => (
+          <Link key={index} to={item.link} target='_blank'>
+            <li className="text-4xl p-2 rounded-full hover:bg-background hover:text-primary transition-all ease-in-out duration-500">{item.icon}</li>
+          </Link>
+        ))}
+        </ul>
+           <p className="mx-auto text-background">2024 &copy; Allan Njoroge. All Rights Reserved.</p>
+        </div>
     </div>
   )
 }
