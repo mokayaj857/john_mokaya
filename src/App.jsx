@@ -1,53 +1,38 @@
-import React from 'react';
-import Nav from './components/Nav';
-import Home from './components/Home';
-import About from './components/About'
-import Skills from './components/Skills';
-import Contact from './components/Contact';
-import Projects from './components/Projects';
-import Footer from './components/Footer';
+import { BrowserRouter as Router } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { About, Hero, Skills, Projects, Contact } from "./sections";
+import { ThemeProvider } from "./components/theme-provider";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 const App = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1200,
+      offset: 120,
+    })
+  },{})
+  
   return (
-    <main className="bg-slate-900 h-screen text-gray-300">
-      {/*   Navbar    */}
-      <div className="height-10">
-        <Nav />
-      </div>
-      <div className=" bg-slate-900 pt-10 scroll-mt-40">
-
-        {/*   Home    */}
-        <section id="home" className="h-screen flex justify-evenly items-center w-[90%] mx-auto">
-          <Home />
-        </section>
-
-        {/*   About    */}
-        <section id="about" className="flex justify-evenly items-center w-[90%] mx-auto">
+    <ThemeProvider>
+      <Router>
+        <Navbar />
+        <section className="section">
+          <Hero />
           <About />
-        </section>
-
-        {/*   Skills    */}
-        <section id="skills" className="flex justify-evenly items-center w-[90%] mx-auto pb-20">
           <Skills />
-        </section>
-
-        {/*   Projects    */}
-        <section id="projects" className="flex justify-evenly items-center w-[90%] mx-auto pb-20">
           <Projects />
         </section>
-
-        {/*   Contact    */}
-        <section id="contact" className="flex justify-evenly items-center w-[90%] mx-auto pb-20">
+        <section className="bg-primary">
           <Contact />
-        </section>
-
-        {/*   Footer    */}
-        <section className="flex justify-evenly items-center w-[90%] mx-auto border-t border-orange-300">
           <Footer />
         </section>
-      </div>
-    </main>
-  )
-}
+      </Router>
+    </ThemeProvider>
+  );
+};
 
-export default App
+export default App;
