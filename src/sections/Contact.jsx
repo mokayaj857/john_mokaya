@@ -70,8 +70,8 @@ const Contact = () => {
   }
 
   const contacts = [
-    { icon: <FaPhoneAlt />, title: "Call Me", info: "+254 776744754" },
-    { icon: <SiGmail />, title: "Email", info: "njorogeallan82@gmail.com" }
+    { icon: <FaPhoneAlt />, title: "Call Me", info: "+254 746271236" },
+    { icon: <SiGmail />, title: "Email", info: "mokayaj857@gmail.com" }
   ]
 
   return (

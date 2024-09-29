@@ -40,7 +40,7 @@ const Skills = () => {
         // { icon: < />, skill: "ExpressJs" },
         { icon: <SiDjango className="text-4xl" />, skill: "Django" },
         { icon: <SiMysql className="text-4xl" />, skill: "MySQL" },
-        { icon: <SiMongodb className="text-4xl" />, skill: "MongoDB" },
+        
       ],
     },
     {
@@ -48,7 +48,7 @@ const Skills = () => {
       icon: <MdUnfoldMore className="text-2xl" />,
       skills: [
         { icon: <FaGitAlt className="text-4xl"/>, skill: "Git" },
-        { icon: <FaWordpressSimple className="text-4xl"/>, skill: "Wordpress" },
+       
       ],
     },
   ];

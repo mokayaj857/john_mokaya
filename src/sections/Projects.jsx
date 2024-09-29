@@ -8,37 +8,38 @@ import {
 } from "@/components/ui/carousel";
 import { FaLink, FaGithub } from "react-icons/fa";
 
-import Interiors from "../assets/interiors.PNG";
-import Solar from "../assets/solar-project.PNG";
-import Events from "../assets/Events.PNG";
+import Rolax from "../assets/Rolax-Iot.png";
+import Linktree from "../assets/linktree.png";
+import Pharmacy  from "../assets/image.png";
 import { Link } from "react-router-dom";
 
 const Projects = () => {
   const projects = [
     {
-      image: Solar,
-      title: "Solar Company Website",
-      demoLink: "https://solar-co.netlify.app/",
-      codeLink: "https://github.com/Allan-njoroge/solar-company-website",
-      techStack: [{ name: "ReactJS" }, { name: "TailwindCSS" }],
+      image: Rolax,
+      title: " ROLAX- water management system",
+      demoLink: "",
+      codeLink: "https://github.com/mokayaj857/rolax.git",
+      techStack: [{ name: "Elixir" }, { name: "Phoenix" }],
     },
     {
-      image: Interiors,
-      title: "Interior Design Website",
-      demoLink: "https://just-interiors.netlify.app/",
-      codeLink: "https://github.com/Allan-njoroge/interior-design",
-      techStack: [{ name: "HTML" }, { name: "CSS" }, { name: "JavaScript" }],
+      image: Linktree,
+      title: "My Linktree Website",
+      demoLink: "",
+      codeLink: "https://github.com/mokayaj857/linktree.git",
+      techStack: [{ name: "Nodejs" }, { name: "Tailwindcss" }, { name: "TypescriptScript" }],
     },
     {
-      image: Events,
-      title: "Events Reserving Platform",
-      demoLink: "https://eventxp.vercel.app/",
-      codeLink: "https://github.com/Allan-njoroge/MyEvents",
+      image: Pharmacy,
+      title: "Pharmacy management system",
+      demoLink: "",
+      codeLink: "https://github.com/MohamedAlaga/ALX_phase_one_project.git",
       techStack: [
-        { name: "ReactJS" },
-        { name: "CSS" },
-        { name: "NodeJs" },
+        { name: "NodeJS" },
+        { name: "TailwindCSS" },
+        { name: "PostmanApi" },
         { name: "MySQL" },
+        { name: "Django" },
       ],
     },
   ];
