@@ -9,7 +9,7 @@ import {
 import { FaLink, FaGithub } from "react-icons/fa";
 
 import Rolax from "../assets/Rolax-Iot.png";
-import Linktree from "../assets/linktree.png";
+import Linktree from "../assets/linktree.PNG";
 import Pharmacy  from "../assets/image.png";
 import { Link } from "react-router-dom";
 
