@@ -11,10 +11,26 @@ import { FaLink, FaGithub } from "react-icons/fa";
 import Rolax from "../assets/Rolax-Iot.png";
 import Linktree from "../assets/linktree.PNG";
 import Pharmacy  from "../assets/image.png";
+import Event  from "../assets/Event.png";
+import Secure  from "../assets/Secure.png";
 import { Link } from "react-router-dom";
 
 const Projects = () => {
   const projects = [
+    {
+      image: Secure,
+      title: " SecurePass- Visitor management system",
+      demoLink: "https://ocw66-bqaaa-aaaai-aqcrq-cai.icp0.io/",
+      codeLink: "https://github.com/Team-Z-ICP/Visitor_Management_Systems.git",
+      techStack: [{ name: "React-Native" }, { name: "Motoko" }],
+    },
+    {
+      image: Event,
+      title: " EventVerse- Event-Ticketing system",
+      demoLink: "https://drive.google.com/file/d/1Z5Q1POLNw9g6Vq8ph7jJq1FduJROfza0/view?usp=sharing",
+      codeLink: "https://github.com/Avalanche-Team1-DAO-Kenya/Event-Ticketing.git",
+      techStack: [{ name: "React-Native" }, { name: "Solidity" }],
+    },
     {
       image: Rolax,
       title: " ROLAX- water management system",
@@ -32,7 +48,7 @@ const Projects = () => {
     {
       image: Pharmacy,
       title: "Pharmacy management system",
-      demoLink: "",
+      demoLink: "https://drive.google.com/file/d/1zAP1gCd1YZ7yXz_U26YopK1yXgWzrIzI/view?usp=sharing",
       codeLink: "https://github.com/MohamedAlaga/ALX_phase_one_project.git",
       techStack: [
         { name: "NodeJS" },
