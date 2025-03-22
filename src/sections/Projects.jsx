@@ -51,6 +51,7 @@ const Projects = () => {
       demoLink: "https://drive.google.com/file/d/1zAP1gCd1YZ7yXz_U26YopK1yXgWzrIzI/view?usp=sharing",
       codeLink: "https://github.com/MohamedAlaga/ALX_phase_one_project.git",
       techStack: [
+         { name: "Python" },
         { name: "NodeJS" },
         { name: "TailwindCSS" },
         { name: "PostmanApi" },
