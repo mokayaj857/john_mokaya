@@ -14,7 +14,7 @@ const Hero = () => {
         <h3 className="text-3xl" data-aos="fade-up">I'm John Mokaya</h3>
         <h1 className="text-5xl md:text-6xl text-primary" data-aos="fade-up" data-aos-delay="300">A Software Developer</h1>
         <p className="text-muted-foreground text-md md:text-lg md:w-[50%] mx-auto" data-aos="fade-up" data-aos-delay="500">
-        I am a software developer focused on building beautiful and interactive user experiences using tools such  React, Tailwind as well as RESTful APIs using Node.js.
+        I am a software developer focused on advancing Technology for the benefit of humanity using tools such  python, React, Tailwind as well as RESTful APIs using Node.js.
         I am currently looking for opportunities as a junior software engineer and
       I'm always free to talk about that and any other interesting projects you
       may have.
