@@ -18,7 +18,7 @@ const Footer = () => {
           </Link>
         ))}
         </ul>
-           <p className="mx-auto text-background">2024 &copy; John Mokaya. All Rights Reserved.</p>
+           <p className="mx-auto text-background">2025 &copy; John Mokaya. All Rights Reserved.</p>
         </div>
     </div>
   )
