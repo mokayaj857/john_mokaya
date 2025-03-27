@@ -13,6 +13,7 @@ import Linktree from "../assets/linktree.PNG";
 import Pharmacy  from "../assets/image.png";
 import Event  from "../assets/Event.png";
 import Secure  from "../assets/Secure.png";
+import Teenwise  from "../assets/Teenwise.png";
 import { Link } from "react-router-dom";
 
 const Projects = () => {
@@ -37,6 +38,13 @@ const Projects = () => {
       demoLink: "",
       codeLink: "https://github.com/mokayaj857/rolax.git",
       techStack: [{ name: "Elixir" }, { name: "Phoenix" }],
+    },
+    {
+      image: Teenwise,
+      title: "Teenwise",
+      demoLink: "https://www.linkedin.com/posts/john-mokaya-3b926a261_yphinnovate-16daysagainstgbv-youthempowerment-activity-7266885661591318528-cMs0?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEBJ070BkogqMIWNMe9Gn1fo1rG1w4j_rbs",
+      codeLink: "https://github.com/mokayaj857/john_mokaya.git",
+      techStack: [{ name: "React" }, { name: "Tailwindcss" }, { name: "Javascript" }],
     },
     {
       image: Linktree,

@@ -15,7 +15,7 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { SiTailwindcss } from "react-icons/si";
 //backend icons
 import { FaNodeJs } from "react-icons/fa";
-import { SiDjango, SiMysql, SiMongodb,python } from "react-icons/si";
+import { SiDjango, SiMysql, SiMongodb } from "react-icons/si";
 // other icons
 import { FaGitAlt, FaWordpressSimple } from "react-icons/fa6";
 
