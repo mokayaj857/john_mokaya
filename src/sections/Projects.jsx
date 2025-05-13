@@ -1,11 +1,4 @@
 import { useEffect, useRef } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { FaLink, FaGithub } from "react-icons/fa";
 
 import Rolax from "../assets/Rolax-Iot.png";
@@ -14,6 +7,7 @@ import Pharmacy  from "../assets/image.png";
 import Event  from "../assets/Event.png";
 import Secure  from "../assets/Secure.png";
 import Teenwise  from "../assets/Teenwise.png";
+import Flood  from "../assets/flood.png";
 import { Link } from "react-router-dom";
 
 const Projects = () => {
@@ -52,6 +46,13 @@ const Projects = () => {
       demoLink: "",
       codeLink: "https://github.com/mokayaj857/linktree.git",
       techStack: [{ name: "Nodejs" }, { name: "Tailwindcss" }, { name: "TypescriptScript" }],
+    },
+    {
+      image: Flood,
+      title: "My flood management Website",
+      demoLink: "",
+      codeLink: "https://github.com/mokayaj857/latasha.git",
+      techStack: [{ name: "React "}, { name: "Tailwindcss" }, { name: "TypescriptScript" }],
     },
     {
       image: Pharmacy,

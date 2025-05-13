@@ -23,7 +23,7 @@ const Skills = () => {
   const content = [
     {
       category: "Frontend",
-      icon: <PiBracketsCurlyBold classnName="text-2xl" />,
+      icon: <PiBracketsCurlyBold className="text-2xl" />,
       skills: [
         { icon: <FaHtml5 className="text-4xl" />, skill: "HTML" },
         { icon: <FaCss3Alt className="text-4xl" />, skill: "CSS" },
