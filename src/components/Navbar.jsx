@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Copy, Check } from 'lucide-react';
+import { Sun, Moon, Copy, Check, Search } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
-export default function Navbar({ theme, toggleTheme }) {
+export default function Navbar({
+  theme,
+  toggleTheme,
+  onOpenCommandPalette
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -20,6 +24,7 @@ export default function Navbar({ theme, toggleTheme }) {
 
   const navLinks = [
     { label: 'Work', href: '#projects' },
+    { label: 'Multi-VM', href: '#playground' },
     { label: 'Stack', href: '#stack' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' }
@@ -56,6 +61,18 @@ export default function Navbar({ theme, toggleTheme }) {
 
         {/* Right Actions */}
         <div className="nav-actions">
+          {onOpenCommandPalette && (
+            <button
+              type="button"
+              className="nav-cmd-trigger mono"
+              onClick={onOpenCommandPalette}
+              title="Search protocols & commands (Cmd + K)"
+            >
+              <Search size={11} />
+              <span>⌘K</span>
+            </button>
+          )}
+
           <button
             type="button"
             className="copy-email-chip"

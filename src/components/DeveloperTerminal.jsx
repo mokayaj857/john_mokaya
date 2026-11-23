@@ -54,8 +54,8 @@ export default function DeveloperTerminal({ isOpen, onClose, theme, toggleTheme,
         newHistory.push({
           type: 'response',
           text: `AVAILABLE COMMANDS:
-  projects   - List all 10 production protocols & systems
-  vms        - Inspect the 6 blockchain virtual machines (Base, Sui, Stellar, Hedera, Stacks, ICP)
+  projects   - List the 5 production protocols & systems (VERIA, Trepa, bitfund, BIMA, SkillReceipt)
+  vms        - Inspect the 5 blockchain virtual machines (Base L2, Sui, Bitcoin/Nostr, Hedera, Stellar)
   nairobi    - Coordinates, local time, and civic tech vision
   bio        - John Mokaya's engineering narrative and background
   contact    - Direct email and social communication channels
@@ -70,19 +70,14 @@ export default function DeveloperTerminal({ isOpen, onClose, theme, toggleTheme,
       case 'protocols':
         newHistory.push({
           type: 'response',
-          text: `INDEXED PRODUCTION PROTOCOLS (10):
-  01. VERIA        | Base L2 · MeTTa AGI (AI Agent Trust & Stake Gate)
+          text: `INDEXED PRODUCTION PROTOCOLS (5):
+  01. VERIA        | Base L2 · MeTTa AGI (AI Agent Trust Layer & Stake Gate)
   02. Trepa        | Sui Move (Self-Funding Intent Engine & PTB Solver)
-  03. BlockForge   | Bitcoin L2 Stacks (Clarity Grant Governance)
-  04. Akilimo      | East Africa GIS (Sentinel-2 NDVI Agri-Fintech)
-  05. Hashmark     | Base L2 (EIP-712 Hardware Media Notary)
-  06. Bima         | Hedera HCS (Parametric Drought Weather Micro-Insurance)
-  07. SkillReceipt | Stellar Soroban (Rust Milestone Escrow & Git Verifier)
-  08. SecurePass   | ICP Motoko (Tamper-Evident Premise Access Canister)
-  09. EventVerse   | Avalanche C-Chain (DAO-Winning Anti-Scalping Ticketing)
-  10. ROLAX IoT    | Elixir / BEAM (Sub-5ms Municipal Water Telemetry)
+  03. bitfund      | Bitcoin · Nostr (Decentralized Public Crowdfunding)
+  04. BIMA         | Hedera HCS (Decentralized Land Marketplace)
+  05. SkillReceipt | Stellar Soroban (Rust Milestone Escrow & Git Verifier)
 
-Tip: Type or click "akilimo" or "veria" to jump directly!`
+Tip: Type "veria", "trepa", "bitfund", "bima", or "skillreceipt" to inspect details!`
         });
         break;
 
@@ -90,13 +85,11 @@ Tip: Type or click "akilimo" or "veria" to jump directly!`
         newHistory.push({
           type: 'response',
           text: `BLOCKCHAIN VIRTUAL MACHINES & EXECUTION ENVIRONMENTS:
-  1. Base L2       -> EVM / Solidity 0.8.24 (Bedrock Rollup, EIP-712)
-  2. Sui           -> Move VM (Object Capabilities, Sub-second PTBs)
-  3. Stellar       -> Soroban WASM / Rust (Formal auth, zero-default escrows)
-  4. Hedera        -> Hashgraph HCS / HSCS (aBFT consensus, Weather Oracles)
-  5. Stacks        -> Clarity VM (Turing-Decidable Bitcoin Layer 2)
-  6. Internet Comp -> Motoko Actor Canisters (Orthogonal State Persistence)
-  + BEAM VM        -> Elixir / Phoenix (Supervised process concurrency)`
+  1. Base L2       -> EVM / Solidity 0.8.24 (Bedrock Rollup, EIP-712, MeTTa AGI)
+  2. Sui           -> Move VM (Object Capabilities, Sub-second PTBs, Intent Solver)
+  3. Bitcoin/Nostr -> NIP-01 / Lightning Network (Sovereign Relays & Micro-Zaps)
+  4. Hedera        -> Hashgraph HCS + HTS (aBFT Consensus, Land Titles)
+  5. Stellar       -> Soroban WASM / Rust (Formal Auth, Milestone Escrows)`
         });
         break;
 

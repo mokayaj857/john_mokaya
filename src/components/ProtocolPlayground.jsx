@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Copy, Check, Terminal } from 'lucide-react';
+import { ExternalLink, Copy, Check } from 'lucide-react';
 import { sound } from '../utils/sound';
 
 export default function ProtocolPlayground() {
@@ -13,9 +13,9 @@ export default function ProtocolPlayground() {
       vm: 'EVM / Bedrock',
       language: 'Solidity 0.8.24',
       badge: 'EVM · Layer 2',
-      project: { name: 'VERIA & Hashmark', url: 'https://veria-basix.vercel.app/' },
+      project: { name: 'VERIA', url: 'https://veria-basix.vercel.app/' },
       paradigm: 'Account-based state transitions with Bedrock OP-Stack fraud proof rollups.',
-      invariant: 'EIP-712 structured cryptographic signatures & slashable economic stake collateral.',
+      invariant: 'EIP-712 structured cryptographic signatures & 25,000 PAS slashable stake collateral.',
       code: `// VERIA Autonomous Agent Verification Stake Gate on Base L2
 contract VeriaStakeGate is Ownable, ReentrancyGuard {
     struct AgentStake {
@@ -26,10 +26,17 @@ contract VeriaStakeGate is Ownable, ReentrancyGuard {
     }
     mapping(address => AgentStake) public stakes;
 
+    // Collateral is locked as accountability. Misbehavior has economic weight.
     function bondAgentCollateral(bytes32 _ruleHash) external payable nonReentrant {
         require(msg.value >= MINIMUM_STAKE, "Insufficient Stake Collateral");
         stakes[msg.sender] = AgentStake(msg.value, _ruleHash, uint64(block.timestamp), false);
         emit StakeBonded(msg.sender, msg.value, _ruleHash);
+    }
+
+    // Symbolic proof verification before action execution
+    function verifyProofAndExecute(bytes32 _proofTreeHash, bytes calldata _sig) external {
+        require(verifySigner(msg.sender, _proofTreeHash, _sig), "Invalid MeTTa Signature");
+        emit AgentActionAttested(msg.sender, _proofTreeHash);
     }
 }`
     },
@@ -39,7 +46,7 @@ contract VeriaStakeGate is Ownable, ReentrancyGuard {
       vm: 'Sui Move VM',
       language: 'Move (Resource-Centric)',
       badge: 'Object-Centric · Sub-Second',
-      project: { name: 'Trepa Intent Engine', url: 'https://trepa-sui.vercel.app/' },
+      project: { name: 'Trepa', url: 'https://trepa-sui.vercel.app/' },
       paradigm: 'Object-centric data storage with single-owner dual-path Byzantine consensus.',
       invariant: 'Atomic execution via Programmable Transaction Blocks without manual routing.',
       code: `// Trepa Natural Language Intent Solver Execution on Sui Move
@@ -47,6 +54,7 @@ module trepa::intent_solver {
     use sui::coin::{Self, Coin};
     use sui::tx_context::{TxContext};
 
+    // Plain-English goals become executable PTBs with risk analysis
     public entry fun execute_intent_bundle<T>(
         intent_coin: Coin<T>,
         min_yield_bps: u64,
@@ -58,6 +66,64 @@ module trepa::intent_solver {
         deposit_vault(intent_coin, ctx);
     }
 }`
+    },
+    {
+      id: 'bitcoin',
+      name: 'Bitcoin & Nostr',
+      vm: 'Nostr NIP-01 / Lightning',
+      language: 'Rust / TypeScript SDK',
+      badge: 'Bitcoin · Nostr Protocol',
+      project: { name: 'bitfund', url: 'https://bitcoin-catalyst.shakespeare.wtf/' },
+      paradigm: 'Censorship-resistant decentralized event mesh coupled with Lightning zap micro-settlement.',
+      invariant: 'Cryptographic Schnorr event signing, transparent relay propagation, and non-custodial zaps.',
+      code: `// bitfund Nostr Proposal Publishing & Lightning Milestone Escrow
+import { finalizeEvent, verifyEvent } from 'nostr-tools';
+
+export const publishBitcoinProposal = async (proposalPayload, userPrivateKey) => {
+  // Propose. Review. Fund. Track. Every step on Nostr.
+  const eventTemplate = {
+    kind: 30023, // Long-form proposal event
+    created_at: Math.floor(Date.now() / 1000),
+    tags: [
+      ['d', proposalPayload.slug],
+      ['title', proposalPayload.title],
+      ['budget', proposalPayload.targetBtc],
+      ['zap', proposalPayload.lightningAddress]
+    ],
+    content: proposalPayload.markdownNarrative
+  };
+
+  const signedEvent = finalizeEvent(eventTemplate, userPrivateKey);
+  return await broadcastToRelays(signedEvent);
+};`
+    },
+    {
+      id: 'hedera',
+      name: 'Hedera',
+      vm: 'Hashgraph HCS + HTS',
+      language: 'Solidity / Hedera SDK',
+      badge: 'Hashgraph · aBFT',
+      project: { name: 'BIMA', url: 'https://bima-heder.vercel.app/' },
+      paradigm: 'Asynchronous Byzantine Fault Tolerant directed acyclic graph (DAG) consensus.',
+      invariant: 'Tokenized Land Titles (HTS NFTs) & Multi-Sig Surveyor Consensus eliminate deed fraud.',
+      code: `// BIMA Hedera Land Title Tokenization & Multi-Sig Escrow
+import { TokenCreateTransaction, TokenType, Hbar } from "@hashgraph/sdk";
+
+// Secure land transactions with Hedera-verified ownership
+export const mintLandTitleNFT = async (client, parcelMetadata) => {
+  const nftCreateTx = new TokenCreateTransaction()
+    .setTokenName("BIMA Verified Land Title")
+    .setTokenSymbol("BLAND")
+    .setTokenType(TokenType.NonFungibleUnique)
+    .setDecimals(0)
+    .setInitialSupply(0)
+    .setTreasuryAccountId(TREASURY_ACCOUNT)
+    .setAdminKey(ADMIN_MULTI_SIG_KEY)
+    .setSupplyKey(SUPPLY_KEY);
+
+  const response = await nftCreateTx.execute(client);
+  return await response.getReceipt(client);
+};`
     },
     {
       id: 'stellar',
@@ -74,118 +140,23 @@ pub struct EscrowContract;
 
 #[contractimpl]
 impl EscrowContract {
-    pub fn release_milestone(env: Env, milestone_id: u32, client: Address) {
-        // Verify caller has formal client authorization signature
+    // Lock payments safely in escrow, verify Git commit, and release
+    pub fn release_milestone(env: Env, milestone_id: u32, client: Address, git_sha: BytesN<20>) {
+        // Enforce formal client authorization signature
         client.require_auth();
         let mut state: EscrowState = env.storage().instance().get(&milestone_id).unwrap();
         assert!(!state.is_released, "Milestone already settled");
+
+        // Bind deliverable to verifiable digital receipt
         state.is_released = true;
+        state.verified_commit = git_sha;
         env.storage().instance().set(&milestone_id, &state);
     }
 }`
-    },
-    {
-      id: 'hedera',
-      name: 'Hedera',
-      vm: 'Hashgraph HCS + HSCS',
-      language: 'Solidity / Hedera SDK',
-      badge: 'Hashgraph · aBFT',
-      project: { name: 'Bima Parametric', url: 'https://bima-heder.vercel.app/' },
-      paradigm: 'Asynchronous Byzantine Fault Tolerant directed acyclic graph (DAG) consensus.',
-      invariant: 'Asynchronous Byzantine Fault Tolerant fair timestamp consensus ordering.',
-      code: `// Bima Parametric Weather Oracle Consensus Submission
-const submitOracleConsensus = async (rainfallIndex, parcelId) => {
-  const transaction = new TopicMessageSubmitTransaction({
-    topicId: HEDERA_WEATHER_TOPIC_ID,
-    message: JSON.stringify({
-      rainfallIndex,
-      parcelId,
-      timestamp: Date.now(),
-      oracleSignature: await signPayload(rainfallIndex)
-    })
-  });
-  const txResponse = await transaction.execute(client);
-  return txResponse.getReceipt(client);
-};`
-    },
-    {
-      id: 'stacks',
-      name: 'Stacks (Bitcoin L2)',
-      vm: 'Clarity VM',
-      language: 'Clarity (Decidable Lisp)',
-      badge: 'Bitcoin L2 · Turing-Decidable',
-      project: { name: 'BlockForge Catalyst', url: 'https://bitcoin-catalyst.shakespeare.wtf/' },
-      paradigm: 'Turing-incomplete decidable smart contract language anchored to Bitcoin blocks.',
-      invariant: 'Non-Turing complete execution mathematically prevents reentrancy and infinite loops.',
-      code: `;; BlockForge Bitcoin Catalyst Grant Governance (Clarity)
-(define-public (cast-quadratic-vote (grant-id uint) (voting-credits uint))
-  (let ((weight (sqrti voting-credits)))
-    (begin
-      (asserts! (>= (get-stx-balance tx-sender) voting-credits) (err u403))
-      (map-set grant-tally grant-id (+ (default-to u0 (map-get? grant-tally grant-id)) weight))
-      (ok weight))))`
-    },
-    {
-      id: 'icp',
-      name: 'Internet Computer',
-      vm: 'ICP Canister Subnet',
-      language: 'Motoko Actors',
-      badge: 'Canister · Orthogonal State',
-      project: { name: 'SecurePass Access', url: 'https://ocw66-bqaaa-aaaai-aqcrq-cai.icp0.io/' },
-      paradigm: 'Actor-based orthogonal persistence eliminating external relational databases.',
-      invariant: 'Subnet-replicated actor ledger immutable to hardware tampering and server reboots.',
-      code: `// SecurePass Visitor Access Authorization Canister (Motoko)
-import Time "mo:base/Time";
-import HashMap "mo:base/HashMap";
-
-actor class SecurePass() {
-    private var passes = HashMap.HashMap<Text, PassRecord>(10, Text.equal, Text.hash);
-
-    public shared({caller}) func issueGuestPass(guestName: Text, validHours: Nat) : async PassRecord {
-        let record : PassRecord = {
-            id = generatePassHash(guestName, Time.now());
-            holder = guestName;
-            issuedAt = Time.now();
-            expiresAt = Time.now() + (validHours * 3600 * 1000000000);
-        };
-        passes.put(record.id, record);
-        return record;
-    };
-}`
-    },
-    {
-      id: 'beam',
-      name: 'Elixir / BEAM',
-      vm: 'BEAM Virtual Machine',
-      language: 'Elixir 1.17',
-      badge: 'Concurrent · Actor Model',
-      project: { name: 'ROLAX IoT Telemetry', url: 'https://github.com/mokayaj857/rolax.git' },
-      paradigm: 'Preemptive lightweight actor processes with dynamic supervisor trees.',
-      invariant: 'BEAM GenServer process supervision isolating hardware disconnects in <3.2ms.',
-      code: `# ROLAX Municipal Telemetry Dynamic Supervision Worker (Elixir)
-defmodule Rolax.Telemetry.Worker do
-  use GenServer, restart: :transient
-
-  def start_link(sensor_id) do
-    GenServer.start_link(__MODULE__, sensor_id, name: via_tuple(sensor_id))
-  end
-
-  @impl true
-  def handle_info({:telemetry_packet, payload}, state) do
-    case validate_sensor_telemetry(payload) do
-      {:ok, valid_data} ->
-        broadcast_flow_metrics(valid_data)
-        {:noreply, state}
-      {:anomaly, error} ->
-        trigger_safety_valve_cutoff(state.sensor_id)
-        {:stop, :sensor_breach, state}
-    end
-  end
-end`
     }
   ];
 
-  const currentVm = vms.find(v => v.id === activeVm) || vms[0];
+  const currentVm = vms.find((v) => v.id === activeVm) || vms[0];
 
   const handleCopyCode = () => {
     navigator.clipboard.writeText(currentVm.code);
@@ -195,21 +166,18 @@ end`
   };
 
   return (
-    <section className="section-wrapper protocol-playground-section" id="playground">
-      <div className="section-header-block">
-        <div className="header-meta-tag">
-          <span className="meta-dot"></span>
-          <span className="section-eyebrow">MULTI-VM ARCHITECTURE LAB</span>
-        </div>
-        <h2 className="section-heading">Cross-VM Execution &amp; Language Invariants</h2>
-        <p className="section-description">
-          Direct implementation comparison across 6 distinct blockchain virtual machines and the BEAM actor engine. Select an execution environment to inspect its computational paradigm, security invariant, and production contract code.
+    <section className="section-block" id="playground">
+      <div className="section-header">
+        <span className="section-badge mono">MULTI-VM ARCHITECTURE</span>
+        <h2 className="section-title">Protocol Playground</h2>
+        <p className="section-desc">
+          Compare execution environments, smart contract invariants, and state management models implemented across the 5 production architectures.
         </p>
       </div>
 
-      <div className="vm-console-container">
+      <div className="playground-container">
         {/* VM Selector Tabs */}
-        <div className="vm-tabs-ribbon">
+        <div className="vm-tabs-track">
           {vms.map((vm) => (
             <button
               key={vm.id}
@@ -221,84 +189,73 @@ end`
               }}
             >
               <span className="vm-tab-name">{vm.name}</span>
-              <span className="vm-tab-lang mono">{vm.language.split(' ')[0]}</span>
+              <span className="vm-tab-badge mono">{vm.badge.split('·')[0].trim()}</span>
             </button>
           ))}
         </div>
 
-        {/* Active VM Hardware Stage */}
-        <div className="vm-active-stage">
-          {/* Top Metadata Header */}
-          <div className="vm-meta-banner">
-            <div className="vm-meta-left">
-              <span className="vm-badge-glow">{currentVm.badge}</span>
-              <div className="vm-titles">
-                <h3 className="vm-display-name">{currentVm.name} · {currentVm.language}</h3>
-                <span className="vm-target-arch mono">Target Runtime: {currentVm.vm}</span>
-              </div>
+        {/* Playground Console */}
+        <div className="playground-console">
+          {/* Console Header Bar */}
+          <div className="pg-console-header">
+            <div className="pg-header-meta">
+              <span className="pg-chip mono">{currentVm.vm}</span>
+              <span className="pg-chip mono text-emerald">{currentVm.language}</span>
+              <span className="pg-project-link">
+                Showcase Project: <strong>{currentVm.project.name}</strong>
+              </span>
             </div>
 
-            <div className="vm-meta-right">
+            <div className="pg-header-actions">
+              <button
+                type="button"
+                className="copy-code-btn"
+                onClick={handleCopyCode}
+                title="Copy smart contract code"
+              >
+                {copied ? (
+                  <>
+                    <Check size={13} className="text-emerald" />
+                    <span>Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy size={13} />
+                    <span>Copy Code</span>
+                  </>
+                )}
+              </button>
+
               {currentVm.project.url && (
                 <a
                   href={currentVm.project.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="vm-project-link"
-                  onClick={() => sound.playClick()}
+                  className="pg-launch-link"
                 >
-                  <span>Protocol: {currentVm.project.name}</span>
                   <ExternalLink size={13} />
                 </a>
               )}
             </div>
           </div>
 
-          {/* Guarantees Strip */}
-          <div className="vm-guarantees-grid">
-            <div className="guarantee-box">
-              <span className="g-label">COMPUTATIONAL PARADIGM:</span>
-              <p className="g-text">{currentVm.paradigm}</p>
-            </div>
-            <div className="guarantee-box">
-              <span className="g-label">VERIFIED SECURITY INVARIANT:</span>
-              <p className="g-text text-emerald font-medium">✓ {currentVm.invariant}</p>
-            </div>
-          </div>
-
-          {/* Code Viewport with Copy Button */}
-          <div className="vm-code-viewport">
-            <div className="code-top-controls">
-              <div className="ct-left">
-                <Terminal size={14} className="text-amber" />
-                <span className="ct-filename mono">
-                  {currentVm.id}.{currentVm.id === 'beam' ? 'ex' : currentVm.id === 'icp' ? 'mo' : currentVm.id === 'stacks' ? 'clar' : currentVm.id === 'stellar' ? 'rs' : currentVm.id === 'sui' ? 'move' : 'sol'}
-                </span>
-              </div>
-
-              <button
-                type="button"
-                className="code-copy-btn"
-                onClick={handleCopyCode}
-                title="Copy code to clipboard"
-              >
-                {copied ? (
-                  <>
-                    <Check size={13} className="text-emerald" />
-                    <span>Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy size={13} />
-                    <span>Copy Snippet</span>
-                  </>
-                )}
-              </button>
-            </div>
-
-            <pre className="vm-code-pre">
+          {/* Code Viewport */}
+          <div className="pg-code-viewport">
+            <pre className="pg-code-block mono">
               <code>{currentVm.code}</code>
             </pre>
+          </div>
+
+          {/* Invariants & Paradigm Footer Strip */}
+          <div className="pg-console-footer">
+            <div className="pg-footer-col">
+              <span className="pg-footer-lbl mono">CONCURRENCY &amp; STATE PARADIGM:</span>
+              <p className="pg-footer-val">{currentVm.paradigm}</p>
+            </div>
+            <div className="pg-footer-col">
+              <span className="pg-footer-lbl mono">CORE SECURITY INVARIANT:</span>
+              <p className="pg-footer-val text-emerald">{currentVm.invariant}</p>
+            </div>
           </div>
         </div>
       </div>
