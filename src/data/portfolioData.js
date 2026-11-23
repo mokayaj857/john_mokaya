@@ -4,6 +4,8 @@ import bitfundImg from '../assets/Bitfund.png';
 import bitfundImg2 from '../assets/Bitfund1.png';
 import bimaImg from '../assets/Bima.png';
 import skillreceiptImg from '../assets/skillreceipt.png';
+import hashmarkImg from '../assets/hashmark.png';
+import setiImg from '../assets/seti.png';
 
 export const personalInfo = {
   name: "John Mokaya",
@@ -36,7 +38,7 @@ export const personalInfo = {
     },
     {
       category: "Databases & Infrastructure",
-      items: ["PostgreSQL", "MySQL", "Redis", "Docker", "Linux CLI", "Git & GitHub", "Vercel"]
+      items: ["PostgreSQL", "MySQL", "Redis", "Docker", "Linux CLI", "Git", "GitHub", "Vercel"]
     },
     {
       category: "Protocols & Systems",
@@ -141,7 +143,7 @@ export const projects = [
     imageLabels: ["Intent Engine & Treasury"],
     techStack: ["Sui Move", "PTBs", "Sui TypeScript SDK", "Intent Parsing", "Risk Engine", "Tailwind CSS"],
     liveUrl: "https://trepa-sui.vercel.app/",
-    githubUrl: "https://github.com/mokayaj857/trepa",
+    githubUrl: "https://github.com/mokayaj857/trepa_sui",
     featured: true,
     status: "Live Engine",
     architecture: "Sui Move Object Model + Sub-second Byzantine Agreement + PTB Bundling",
@@ -258,7 +260,7 @@ export const projects = [
     imageLabels: ["Land Marketplace & Titles"],
     techStack: ["Hedera Hashgraph", "HCS", "Token Service (HTS)", "Smart Contracts", "Hedera SDK", "GIS"],
     liveUrl: "https://bima-heder.vercel.app/",
-    githubUrl: "https://github.com/mokayaj857/bima",
+    githubUrl: "https://github.com/mokayaj857/bima11",
     featured: true,
     status: "Live Marketplace",
     architecture: "Hedera Consensus Service (HCS) Fair Timestamping + Hedera Token Service (HTS) NFTs",
@@ -316,7 +318,7 @@ export const projects = [
     imageLabels: ["Escrow & Receipt Engine"],
     techStack: ["Stellar", "Soroban WASM", "Rust (no_std)", "Freighter Wallet", "Milestone Escrow", "Next.js"],
     liveUrl: "https://skillreceiptstellar.vercel.app/",
-    githubUrl: "https://github.com/mokayaj857/skillreceipt",
+    githubUrl: "https://github.com/mokayaj857/skillreceipt_stellar",
     featured: true,
     status: "Live Protocol",
     architecture: "Stellar Soroban Rust Host Environment + SHA-256 Deliverable Commitment",
@@ -352,6 +354,122 @@ export const projects = [
       { label: "Transaction Fee", val: "< $0.0001" },
       { label: "Payment Safety", val: "100% Escrowed" },
       { label: "Proof Binding", val: "Git Commit SHA" }
+    ]
+  },
+  {
+    id: "hashmark",
+    number: "06",
+    title: "Hashmark",
+    subtitle: "A Ledger for Reality & Cryptographic Device Attestation",
+    headline: "A LEDGER FOR REALITY",
+    tagline: "Hashmark doesn't chase deepfakes. It proves reality.",
+    description: "Hashmark doesn't chase deepfakes. It proves reality. Bind digital content to verified devices and decentralized identities at the moment of creation.",
+    extendedNarrative: "Engineered to prove digital content authenticity at the hardware tier. Hashmark binds media captured on mobile devices to cryptographic hardware keys and decentralized identities, anchoring verifiable C2PA tamper-proof manifests onto Base L2 with sub-cent gas overhead.",
+    ecosystem: "Base L2 · Device Attestation",
+    badge: "EIP-712 & C2PA",
+    category: "Provenance & Reality Ledger",
+    accentColor: "#f43f5e",
+    accentGlow: "rgba(244, 63, 94, 0.18)",
+    aspectRatio: 1.49,
+    image: hashmarkImg,
+    images: [hashmarkImg],
+    imageLabels: ["Reality Ledger & Device Attestation"],
+    techStack: ["Base L2", "Hardware Attestation", "EIP-712", "C2PA Provenance", "Solidity", "Next.js"],
+    liveUrl: "https://hashmark-base.vercel.app/",
+    githubUrl: "https://github.com/mokayaj857/hasmark_360",
+    featured: true,
+    status: "Live Protocol",
+    architecture: "Base Bedrock Rollup + Secure Enclave Hardware Attestation + C2PA Manifests",
+    invariants: [
+      "Hardware-bound cryptographic signatures verify device identity at moment of capture.",
+      "Immutable C2PA content credentials anchored onto Base L2 ledger.",
+      "Zero-knowledge validation preserving creator privacy while proving provenance."
+    ],
+    pillars: [
+      {
+        num: "01",
+        title: "Capture & Sign",
+        desc: "Digital content is cryptographically signed inside device secure enclave hardware."
+      },
+      {
+        num: "02",
+        title: "Verify Device",
+        desc: "Decentralized identity confirms authorized device integrity and ownership."
+      },
+      {
+        num: "03",
+        title: "Anchor on Base",
+        desc: "Tamper-evident attestation hash is recorded permanently on Base L2 blockchain."
+      },
+      {
+        num: "04",
+        title: "Prove Reality",
+        desc: "Anyone can verify capture authenticity in sub-second latency without trusting intermediaries."
+      }
+    ],
+    metrics: [
+      { label: "Attestation Settlement", val: "Base L2" },
+      { label: "Provenance Standard", val: "C2PA Compatible" },
+      { label: "Hardware Security", val: "Secure Enclave" },
+      { label: "Verification Latency", val: "< 1.5s" }
+    ]
+  },
+  {
+    id: "seti",
+    number: "07",
+    title: "Seti",
+    subtitle: "Decentralized Binary Prediction & Settlement Engine",
+    headline: "Live Yes/No Polymarket on Blockchain",
+    tagline: "Decentralized binary outcome prediction markets settled autonomously on-chain.",
+    description: "A live yes-or-no prediction market built on blockchain. Traders take binary outcome positions, pool liquidity, and settle oracle-verified world events trustlessly on-chain.",
+    extendedNarrative: "A decentralized binary prediction market protocol inspired by Polymarket, built on EVM. Traders take 'Yes' or 'No' positions on verifiable real-world outcomes, provide automated liquidity through a constant-product conditional token pool, and resolve markets through decentralized oracle consensus with programmatic payout distribution.",
+    ecosystem: "Base / EVM · Prediction Market",
+    badge: "Binary AMM & Oracles",
+    category: "Prediction Markets & DeFi",
+    accentColor: "#8b5cf6",
+    accentGlow: "rgba(139, 92, 246, 0.18)",
+    aspectRatio: 1.05,
+    image: setiImg,
+    images: [setiImg],
+    imageLabels: ["Prediction Market & Settlement Engine"],
+    techStack: ["Base EVM", "Binary AMM", "Conditional Tokens", "Oracle Settlement", "Solidity", "React"],
+    liveUrl: null,
+    githubUrl: "https://github.com/mokayaj857/seti",
+    featured: true,
+    status: "Live on Blockchain",
+    architecture: "Base EVM Smart Contracts + Binary Outcome AMM + Decentralized Resolution Oracle",
+    invariants: [
+      "Binary outcome tokens (YES/NO) guaranteed to settle at 1.00 USDC aggregate par value.",
+      "Deterministic oracle resolution triggering instant, non-custodial winnings redemption.",
+      "Constant-product market maker pool providing continuous liquidity for active traders."
+    ],
+    pillars: [
+      {
+        num: "01",
+        title: "Market Creation",
+        desc: "Arbitrators or DAO propose binary event questions with verified oracle feeds."
+      },
+      {
+        num: "02",
+        title: "Liquidity AMM",
+        desc: "Automated market maker maintains continuous pricing based on collective probability."
+      },
+      {
+        num: "03",
+        title: "Trade & Hedge",
+        desc: "Participants trade binary shares instantly with sub-cent transaction costs."
+      },
+      {
+        num: "04",
+        title: "Oracle Resolution",
+        desc: "Verifiable oracle signals event outcome, instantly unlocking contract payouts."
+      }
+    ],
+    metrics: [
+      { label: "Market Type", val: "Binary (YES/NO)" },
+      { label: "Settlement Layer", val: "Base / EVM" },
+      { label: "Pricing Engine", val: "Conditional AMM" },
+      { label: "Counterparty Risk", val: "0% Non-Custodial" }
     ]
   }
 ];

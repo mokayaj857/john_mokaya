@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
 import { Copy, Check, Send, ArrowUpRight } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, InstagramIcon } from './Icons';
+import { GithubIcon, LinkedinIcon, InstagramIcon, GmailIcon } from './Icons';
+import { sound } from '../utils/sound';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -9,6 +10,7 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleCopyEmail = () => {
+    sound.playClick();
     navigator.clipboard.writeText(personalInfo.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -17,6 +19,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
+    sound.playClick();
     setSubmitted(true);
     setFormData({ name: '', email: '', message: '' });
     setTimeout(() => setSubmitted(false), 5000);
@@ -33,19 +36,37 @@ export default function Contact() {
       </div>
 
       <div className="contact-grid">
-        {/* Left: Direct Contact Card */}
+        {/* Left: Direct Contact & Creative Online Presence */}
         <div className="contact-info-card">
-          <div className="email-display-box">
-            <span className="info-label mono">DIRECT INBOX</span>
-            <a href={`mailto:${personalInfo.email}`} className="email-link">
+          {/* Direct Inbox Card */}
+          <div className="direct-inbox-card">
+            <div className="dic-header">
+              <div className="dic-label-group">
+                <span className="dic-icon-box">
+                  <GmailIcon size={18} />
+                </span>
+                <span className="dic-label mono">DIRECT INBOX</span>
+              </div>
+              <span className="dic-status mono">
+                <span className="status-dot-pulse"></span>
+                <span>Active • UTC+3</span>
+              </span>
+            </div>
+
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="dic-email-address mono"
+              onClick={() => sound.playClick()}
+            >
               {personalInfo.email}
             </a>
 
-            <div className="email-btn-group">
+            <div className="dic-action-row">
               <button
                 type="button"
-                className="btn-secondary copy-btn"
+                className="dic-copy-btn"
                 onClick={handleCopyEmail}
+                title={`Copy ${personalInfo.email}`}
               >
                 {copied ? (
                   <>
@@ -60,30 +81,77 @@ export default function Contact() {
                 )}
               </button>
 
-              <a href={`mailto:${personalInfo.email}`} className="btn-primary email-btn">
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="dic-send-btn"
+                onClick={() => sound.playClick()}
+              >
                 <span>Send Email</span>
-                <ArrowUpRight size={14} />
+                <ArrowUpRight size={13} />
               </a>
             </div>
           </div>
 
-          <div className="socials-box">
-            <span className="info-label mono">ONLINE PRESENCE</span>
-            <div className="socials-links-list">
-              <a href={personalInfo.socials.github} target="_blank" rel="noreferrer" className="social-row-link">
-                <GithubIcon size={16} />
-                <span>GitHub</span>
-                <ArrowUpRight size={12} className="link-arrow" />
+          {/* Online Presence Cards */}
+          <div className="online-presence-card">
+            <div className="op-header">
+              <span className="op-label mono">ONLINE PRESENCE</span>
+              <span className="op-count mono">3 Channels</span>
+            </div>
+
+            <div className="op-channels-list">
+              {/* GitHub */}
+              <a
+                href={personalInfo.socials.github}
+                target="_blank"
+                rel="noreferrer"
+                className="op-channel-item github"
+                onClick={() => sound.playClick()}
+              >
+                <div className="op-icon-badge github-badge">
+                  <GithubIcon size={18} />
+                </div>
+                <div className="op-channel-details">
+                  <span className="op-channel-title">GitHub</span>
+                  <span className="op-channel-handle mono">@mokayaj857 • Open-Source Repos</span>
+                </div>
+                <ArrowUpRight size={14} className="op-arrow" />
               </a>
-              <a href={personalInfo.socials.linkedin} target="_blank" rel="noreferrer" className="social-row-link">
-                <LinkedinIcon size={16} />
-                <span>LinkedIn</span>
-                <ArrowUpRight size={12} className="link-arrow" />
+
+              {/* LinkedIn */}
+              <a
+                href={personalInfo.socials.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="op-channel-item linkedin"
+                onClick={() => sound.playClick()}
+              >
+                <div className="op-icon-badge linkedin-badge">
+                  <LinkedinIcon size={18} />
+                </div>
+                <div className="op-channel-details">
+                  <span className="op-channel-title">LinkedIn</span>
+                  <span className="op-channel-handle mono">john-mokaya • Engineering Profile</span>
+                </div>
+                <ArrowUpRight size={14} className="op-arrow" />
               </a>
-              <a href={personalInfo.socials.instagram} target="_blank" rel="noreferrer" className="social-row-link">
-                <InstagramIcon size={16} />
-                <span>Instagram</span>
-                <ArrowUpRight size={12} className="link-arrow" />
+
+              {/* Instagram */}
+              <a
+                href={personalInfo.socials.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="op-channel-item instagram"
+                onClick={() => sound.playClick()}
+              >
+                <div className="op-icon-badge instagram-badge">
+                  <InstagramIcon size={18} />
+                </div>
+                <div className="op-channel-details">
+                  <span className="op-channel-title">Instagram</span>
+                  <span className="op-channel-handle mono">@greybabey • Tech Community</span>
+                </div>
+                <ArrowUpRight size={14} className="op-arrow" />
               </a>
             </div>
           </div>

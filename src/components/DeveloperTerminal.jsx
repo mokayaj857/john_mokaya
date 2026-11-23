@@ -54,7 +54,7 @@ export default function DeveloperTerminal({ isOpen, onClose, theme, toggleTheme,
         newHistory.push({
           type: 'response',
           text: `AVAILABLE COMMANDS:
-  projects   - List the 5 production protocols & systems (VERIA, Trepa, bitfund, BIMA, SkillReceipt)
+  projects   - List the 7 production protocols & systems (VERIA, Trepa, bitfund, BIMA, SkillReceipt, Hashmark, Seti)
   vms        - Inspect the 5 blockchain virtual machines (Base L2, Sui, Bitcoin/Nostr, Hedera, Stellar)
   nairobi    - Coordinates, local time, and civic tech vision
   bio        - John Mokaya's engineering narrative and background
@@ -70,14 +70,16 @@ export default function DeveloperTerminal({ isOpen, onClose, theme, toggleTheme,
       case 'protocols':
         newHistory.push({
           type: 'response',
-          text: `INDEXED PRODUCTION PROTOCOLS (5):
-  01. VERIA        | Base L2 · MeTTa AGI (AI Agent Trust Layer & Stake Gate)
-  02. Trepa        | Sui Move (Self-Funding Intent Engine & PTB Solver)
-  03. bitfund      | Bitcoin · Nostr (Decentralized Public Crowdfunding)
-  04. BIMA         | Hedera HCS (Decentralized Land Marketplace)
-  05. SkillReceipt | Stellar Soroban (Rust Milestone Escrow & Git Verifier)
+          text: `INDEXED PRODUCTION PROTOCOLS (7):
+  01. VERIA        | Base L2 · MeTTa AGI (https://github.com/mokayaj857/veria)
+  02. Trepa        | Sui Move (https://github.com/mokayaj857/trepa_sui)
+  03. bitfund      | Bitcoin · Nostr (https://github.com/mokayaj857/bitfund)
+  04. BIMA         | Hedera HCS (https://github.com/mokayaj857/bima11)
+  05. SkillReceipt | Stellar Soroban (https://github.com/mokayaj857/skillreceipt_stellar)
+  06. Hashmark     | Base L2 Attestation (https://github.com/mokayaj857/hasmark_360)
+  07. Seti         | Base EVM Prediction (https://github.com/mokayaj857/seti)
 
-Tip: Type "veria", "trepa", "bitfund", "bima", or "skillreceipt" to inspect details!`
+Tip: Type any project name (e.g., "hashmark", "seti", "veria") to inspect details!`
         });
         break;
 
@@ -163,7 +165,7 @@ Subtitle:     ${matchedProj.subtitle}
 Ecosystem:    ${matchedProj.ecosystem}
 Architecture: ${matchedProj.architecture}
 Status:       ${matchedProj.status}
-${matchedProj.liveUrl ? `Live URL:     ${matchedProj.liveUrl}` : 'Code Repository: Available upon request'}`
+${matchedProj.liveUrl ? `Live URL:     ${matchedProj.liveUrl}\n` : ''}${matchedProj.githubUrl ? `GitHub Repo:  ${matchedProj.githubUrl}` : ''}`
           });
         } else {
           newHistory.push({

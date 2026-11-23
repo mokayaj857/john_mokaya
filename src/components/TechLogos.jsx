@@ -238,6 +238,26 @@ export function LinuxCliLogo({ size = 20, className = "" }) {
   );
 }
 
+export function GitLogo({ size = 20, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 128 128" className={className} aria-label="Git">
+      <title>Git</title>
+      <path fill="#F05032" d="M124.7 57.2L70.8 3.3c-4.4-4.4-11.5-4.4-15.9 0L3.3 55.0c-4.4 4.4-4.4 11.5 0 15.9l53.9 53.9c4.4 4.4 11.5 4.4 15.9 0l51.6-51.7c4.4-4.4 4.4-11.5 0-15.9z" />
+      <path fill="#ffffff" d="M66.4 57.3l-8.9-8.9v18.7a8.5 8.5 0 0 0-2.7 15.8v15.9a5.7 5.7 0 1 0 11.4 0V83a8.5 8.5 0 0 0 5.6-7.9c0-3.6-2.2-6.6-5.4-7.8zM49.1 57.3a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17z" />
+    </svg>
+  );
+}
+
+export function GitHubLogo({ size = 20, className = "" }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 98 96" className={className} aria-label="GitHub">
+      <title>GitHub</title>
+      <rect width="98" height="96" rx="20" fill="#181717" />
+      <path fillRule="evenodd" clipRule="evenodd" fill="#ffffff" d="M48.854 8C26.839 8 9 25.8 9 47.9c0 17.7 11.4 32.7 27.2 38 .5.1.7-.2.7-.5v-1.9c-11.1 2.4-13.4-4.8-13.4-4.8-1.8-4.6-4.4-5.8-4.4-5.8-3.6-2.5.3-2.4.3-2.4 4 .3 6.1 4.1 6.1 4.1 3.5 6.1 9.3 4.4 11.6 3.3.3-2.6 1.4-4.4 2.5-5.4-8.8-.9-18.1-4.4-18.1-19.8 0-4.4 1.6-7.9 4.1-10.7-.4-1.8-1.8-5.1.4-10.6 0 0 3.4-1.1 10.9 4.1a38.2 38.2 0 0 1 20 0c7.5-5.2 10.9-4.1 10.9-4.1 2.2 5.5.8 9.6.4 10.6 2.6 2.8 4.1 6.3 4.1 10.7 0 15.4-9.3 18.8-18.2 19.8 1.4 1.2 2.7 3.6 2.7 7.4 0 5.4-.1 9.7-.1 11 0 .3.2.6.7.5 15.8-5.3 27.2-20.3 27.2-38C88.7 25.8 70.9 8 48.854 8z" />
+    </svg>
+  );
+}
+
 export function GitGitHubLogo({ size = 20, className = "" }) {
   return (
     <svg width={size} height={size} viewBox="0 0 64 64" className={className} aria-label="Git & GitHub">
@@ -355,6 +375,8 @@ const LOGO_MAP = {
   "Redis": RedisLogo,
   "Docker": DockerLogo,
   "Linux CLI": LinuxCliLogo,
+  "Git": GitLogo,
+  "GitHub": GitHubLogo,
   "Git & GitHub": GitGitHubLogo,
   "Vercel": VercelLogo,
 

@@ -48,7 +48,8 @@ const SKILL_CATEGORIES_DATA = [
       { name: 'Redis', role: 'Low-Latency In-Memory Cache', color: '#DC382D' },
       { name: 'Docker', role: 'Containerized Environments', color: '#2496ED' },
       { name: 'Linux CLI', role: 'POSIX Administration & Bash', color: '#10B981' },
-      { name: 'Git & GitHub', role: 'Version Control & CI/CD Pipelines', color: '#F05032' },
+      { name: 'Git', role: 'Distributed Version Control & Branch Flow', color: '#F05032' },
+      { name: 'GitHub', role: 'Collaborative Repos, Actions & CI/CD', color: '#ffffff' },
       { name: 'Vercel', role: 'Global Edge Cloud Deployment', color: '#ffffff' }
     ]
   },
@@ -74,10 +75,10 @@ export default function EngineeringFocus() {
   const [hoveredTech, setHoveredTech] = useState(null);
 
   const filterTabs = [
-    { id: 'all', label: 'All Stack', count: 27 },
+    { id: 'all', label: 'All Stack', count: 28 },
     { id: 'frontend', label: 'Frontend', count: 7 },
     { id: 'backend', label: 'Backend', count: 7 },
-    { id: 'databases', label: 'Data & Infra', count: 7 },
+    { id: 'databases', label: 'Data & Infra', count: 8 },
     { id: 'protocols', label: 'Protocols & VMs', count: 6 }
   ];
 
@@ -91,7 +92,7 @@ export default function EngineeringFocus() {
       <div className="section-header">
         <div className="section-badge-row">
           <span className="section-badge mono">CAPABILITIES</span>
-          <span className="section-tech-count mono">27 Production Technologies</span>
+          <span className="section-tech-count mono">28 Production Technologies</span>
         </div>
         <h2 className="section-title">Technical Stack &amp; Tools</h2>
         <p className="section-desc">

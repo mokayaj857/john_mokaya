@@ -3,6 +3,7 @@ import { projects } from '../data/portfolioData';
 import {
   ExternalLink, Maximize2, X, Globe, ZoomIn, ZoomOut, RotateCcw
 } from 'lucide-react';
+import { GithubIcon } from './Icons';
 import { sound } from '../utils/sound';
 
 function ProjectCard({ project, onOpenLightbox }) {
@@ -47,7 +48,11 @@ function ProjectCard({ project, onOpenLightbox }) {
 
           <div className="compact-url-pill mono">
             <span className="lock-icon">🔒</span>
-            <span className="url-text">{project.liveUrl ? project.liveUrl.replace('https://', '') : 'protocol.on-chain'}</span>
+            <span className="url-text">
+              {project.liveUrl
+                ? project.liveUrl.replace('https://', '')
+                : (project.githubUrl ? project.githubUrl.replace('https://github.com/', 'github.com/') : 'protocol.on-chain')}
+            </span>
           </div>
 
           {/* Asset toggle for bitfund */}
@@ -150,6 +155,21 @@ function ProjectCard({ project, onOpenLightbox }) {
             </a>
           )}
 
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-compact-github"
+              onClick={() => sound.playClick()}
+              title={`View ${project.title} source code on GitHub`}
+            >
+              <GithubIcon size={13} />
+              <span>Source Code</span>
+              <ExternalLink size={11} />
+            </a>
+          )}
+
           <button
             type="button"
             className="btn-compact-inspect"
@@ -170,12 +190,14 @@ export default function Projects() {
   const [zoomLevel, setZoomLevel] = useState(1);
 
   const filters = [
-    { id: 'all', label: 'All (5)' },
+    { id: 'all', label: 'All (7)' },
     { id: 'veria', label: 'VERIA' },
     { id: 'trepa', label: 'Trepa' },
     { id: 'bitfund', label: 'bitfund' },
     { id: 'bima', label: 'BIMA' },
-    { id: 'skillreceipt', label: 'SkillReceipt' }
+    { id: 'skillreceipt', label: 'SkillReceipt' },
+    { id: 'hashmark', label: 'Hashmark' },
+    { id: 'seti', label: 'Seti' }
   ];
 
   const filteredProjects = selectedFilter === 'all'
@@ -210,7 +232,7 @@ export default function Projects() {
         <span className="section-badge mono">SELECTED WORK</span>
         <h2 className="section-title">Production Protocols</h2>
         <p className="section-desc">
-          Five production decentralized systems and protocols engineered across Base L2, Sui Move, Bitcoin Nostr, Hedera, and Stellar Soroban.
+          Seven production decentralized systems and protocols engineered across Base L2, Sui Move, Bitcoin Nostr, Hedera, and Stellar Soroban.
         </p>
       </div>
 
@@ -291,6 +313,19 @@ export default function Projects() {
                   >
                     <span>Launch Live</span>
                     <ExternalLink size={13} />
+                  </a>
+                )}
+
+                {lightboxData.project.githubUrl && (
+                  <a
+                    href={lightboxData.project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="lh-github-btn"
+                  >
+                    <GithubIcon size={13} />
+                    <span>GitHub</span>
+                    <ExternalLink size={12} />
                   </a>
                 )}
 
