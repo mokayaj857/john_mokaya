@@ -24,7 +24,7 @@ export const personalInfo = {
   socials: {
     github: "https://github.com/mokayaj857",
     linkedin: "https://www.linkedin.com/in/john-mokaya-3b926a261",
-    instagram: "https://www.instagram.com/greybabey",
+    instagram: "https://www.instagram.com/sir.juniour",
     email: "mailto:mokayaj857@gmail.com"
   },
   skills: [
@@ -433,10 +433,10 @@ export const projects = [
     images: [setiImg],
     imageLabels: ["Prediction Market & Settlement Engine"],
     techStack: ["Base EVM", "Binary AMM", "Conditional Tokens", "Oracle Settlement", "Solidity", "React"],
-    liveUrl: null,
+    liveUrl: "https://setimvp.vercel.app/",
     githubUrl: "https://github.com/mokayaj857/seti",
     featured: true,
-    status: "Live on Blockchain",
+    status: "Live Protocol",
     architecture: "Base EVM Smart Contracts + Binary Outcome AMM + Decentralized Resolution Oracle",
     invariants: [
       "Binary outcome tokens (YES/NO) guaranteed to settle at 1.00 USDC aggregate par value.",

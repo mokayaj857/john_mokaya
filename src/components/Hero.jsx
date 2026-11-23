@@ -91,7 +91,7 @@ export default function Hero() {
             target="_blank"
             rel="noreferrer"
             className="social-icon-btn"
-            title="Instagram: @greybabey"
+            title="Instagram: @sir.juniour"
           >
             <InstagramIcon size={16} />
           </a>

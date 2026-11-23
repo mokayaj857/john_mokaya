@@ -149,7 +149,7 @@ export default function Contact() {
                 </div>
                 <div className="op-channel-details">
                   <span className="op-channel-title">Instagram</span>
-                  <span className="op-channel-handle mono">@greybabey • Tech Community</span>
+                  <span className="op-channel-handle mono">@sir.juniour • Tech Community</span>
                 </div>
                 <ArrowUpRight size={14} className="op-arrow" />
               </a>

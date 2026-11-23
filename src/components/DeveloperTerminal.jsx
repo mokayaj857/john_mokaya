@@ -124,7 +124,7 @@ Tip: Type any project name (e.g., "hashmark", "seti", "veria") to inspect detail
   Email:     mokayaj857@gmail.com
   GitHub:    https://github.com/mokayaj857
   LinkedIn:  https://www.linkedin.com/in/john-mokaya-3b926a261
-  Instagram: @greybabey`
+  Instagram: @sir.juniour`
         });
         break;
 
